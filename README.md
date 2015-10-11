@@ -1,1 +1,1 @@
-# manmaed.github.io
+# http://manmaed.github.io/
