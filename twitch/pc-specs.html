@@ -216,43 +216,47 @@
     </div>
 
     <script>
-        // Load specs from JSON file
+
+        function renderSpecs(data) {
+            const specsContainer = document.getElementById('specs-container');
+            specsContainer.innerHTML = '';
+
+            data.specs.forEach(section => {
+                const cardClass = section.fullWidth ? 'spec-card full-width' : 'spec-card';
+                const card = document.createElement('div');
+                card.className = cardClass;
+
+                card.innerHTML = `<h3>${section.title}</h3>`;
+
+                section.items.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'spec-item';
+                    itemDiv.innerHTML = `
+                        <div class="spec-label">${item.label}</div>
+                        <div class="spec-value">${item.value}</div>
+                    `;
+                    card.appendChild(itemDiv);
+                });
+
+                specsContainer.appendChild(card);
+            });
+        }
+
         async function loadSpecs() {
             try {
-                const response = await fetch('specs.json');
+                const response = await fetch('specs.json', { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
                 const data = await response.json();
-                
-                // Build specs HTML
-                const specsContainer = document.getElementById('specs-container');
-                specsContainer.innerHTML = '';
-                
-                data.specs.forEach(section => {
-                    const cardClass = section.fullWidth ? 'spec-card full-width' : 'spec-card';
-                    const card = document.createElement('div');
-                    card.className = cardClass;
-                    
-                    card.innerHTML = `<h3>${section.title}</h3>`;
-                    
-                    section.items.forEach(item => {
-                        const itemDiv = document.createElement('div');
-                        itemDiv.className = 'spec-item';
-                        itemDiv.innerHTML = `
-                            <div class="spec-label">${item.label}</div>
-                            <div class="spec-value">${item.value}</div>
-                        `;
-                        card.appendChild(itemDiv);
-                    });
-                    
-                    specsContainer.appendChild(card);
-                });
+                renderSpecs(data);
             } catch (error) {
                 console.error('Error loading specs:', error);
-                document.getElementById('specs-container').innerHTML = 
-                    '<p style="color: #ff6b6b;">Error loading specifications. Please try again.</p>';
+                document.getElementById('specs-container').innerHTML =
+                    '<p style="color: #ff6b6b; text-align: center; grid-column: 1 / -1;">Error loading specifications. Please try again.</p>';
             }
         }
-        
-        // Load specs when page loads
+
         document.addEventListener('DOMContentLoaded', loadSpecs);
     </script>
 </body>
