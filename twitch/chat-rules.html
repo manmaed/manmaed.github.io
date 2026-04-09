@@ -73,6 +73,7 @@
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             color: #9146ff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .subtitle {
@@ -174,6 +175,13 @@
             margin-top: 3rem;
         }
 
+        .shared-footer-frame {
+            width: 100%;
+            height: 48px;
+            border: 0;
+            background: transparent;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 1.5rem 1rem;
@@ -197,105 +205,78 @@
 
     <div class="container">
         <header>
-            <h1>💬 Chat Rules</h1>
-            <p class="subtitle">Keep our community awesome and respectful</p>
+            <h1 id="rules-title">Chat Rules</h1>
+            <p class="subtitle" id="rules-subtitle">Loading rules...</p>
         </header>
 
-        <div class="rules-section">
-            <div class="rule">
-                <span class="rule-number">1</span>
-                <div class="rule-content">
-                    <div class="rule-title">Be Respectful & Kind</div>
-                    <div class="rule-description">
-                        Treat everyone in chat with kindness and respect. No personal attacks, harassment, or bullying of any kind.
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule">
-                <span class="rule-number">2</span>
-                <div class="rule-content">
-                    <div class="rule-title">No Hate Speech or Discrimination</div>
-                    <div class="rule-description">
-                        Absolutely no discrimination based on race, gender, religion, sexual orientation, disability, or any other protected characteristic.
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule">
-                <span class="rule-number">3</span>
-                <div class="rule-content">
-                    <div class="rule-title">Keep Chat Family-Friendly</div>
-                    <div class="rule-description">
-                        Avoid excessive profanity, sexual content, and graphic language. This is a space for everyone to enjoy.
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule">
-                <span class="rule-number">4</span>
-                <div class="rule-content">
-                    <div class="rule-title">No Spam or Self-Promotion</div>
-                    <div class="rule-description">
-                        Don't spam links, repeatedly post the same message, or excessively promote your own content without permission.
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule">
-                <span class="rule-number">5</span>
-                <div class="rule-content">
-                    <div class="rule-title">Respect Streamer Authority</div>
-                    <div class="rule-description">
-                        Follow the streamer's and moderators' decisions. Don't argue with moderator actions in chat. Use whisper/mail for concerns.
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule">
-                <span class="rule-number">6</span>
-                <div class="rule-content">
-                    <div class="rule-title">No Excessive Emote Spam</div>
-                    <div class="rule-description">
-                        Use emotes and macros reasonably. Avoid flooding chat with repeated emote strings that obstruct conversation.
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule">
-                <span class="rule-number">7</span>
-                <div class="rule-content">
-                    <div class="rule-title">Don't Share Personal Information</div>
-                    <div class="rule-description">
-                        Never share your own or others' personal information (addresses, phone numbers, real names without consent, etc).
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule">
-                <span class="rule-number">8</span>
-                <div class="rule-content">
-                    <div class="rule-title">Avoid Spoilers Without Warning</div>
-                    <div class="rule-description">
-                        If you're discussing games or shows, use spoiler warnings to respect those who haven't experienced the content yet.
-                    </div>
-                </div>
-            </div>
-
-            <div class="consequences">
-                <h3>⚠️ Consequences for Violations</h3>
-                <ul>
-                    <li><strong>First offense:</strong> Warning from moderator</li>
-                    <li><strong>Second offense:</strong> Timeout (temporary chat restriction)</li>
-                    <li><strong>Third offense or severe violation:</strong> Ban from chat</li>
-                    <li><strong>Severe harassment/hate speech:</strong> Immediate ban</li>
-                </ul>
-            </div>
+        <div class="rules-section" id="rules-container">
+            <p style="text-align: center;">Loading rules...</p>
         </div>
 
         <footer>
-            <p>Questions? Contact a moderator! Thanks for keeping our community amazing 🎉</p>
+            <iframe class="shared-footer-frame" src="../footer.html" title="Site footer"></iframe>
         </footer>
     </div>
+    <script>
+        function renderRules(data) {
+            const titleEl = document.getElementById('rules-title');
+            const subtitleEl = document.getElementById('rules-subtitle');
+            const container = document.getElementById('rules-container');
+
+            titleEl.textContent = data.title || 'Chat Rules';
+            subtitleEl.textContent = data.subtitle || 'Keep our community awesome and respectful';
+            container.innerHTML = '';
+
+            data.rules.forEach((rule, index) => {
+                const ruleEl = document.createElement('div');
+                ruleEl.className = 'rule';
+                ruleEl.innerHTML = `
+                    <span class="rule-number">${index + 1}</span>
+                    <div class="rule-content">
+                        <div class="rule-title">${rule.title}</div>
+                        <div class="rule-description">${rule.description}</div>
+                    </div>
+                `;
+                container.appendChild(ruleEl);
+            });
+
+            if (data.consequences && Array.isArray(data.consequences.items)) {
+                const consequencesEl = document.createElement('div');
+                consequencesEl.className = 'consequences';
+
+                const heading = document.createElement('h3');
+                heading.textContent = data.consequences.title || 'Consequences for Violations';
+                consequencesEl.appendChild(heading);
+
+                const list = document.createElement('ul');
+                data.consequences.items.forEach((item) => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    list.appendChild(li);
+                });
+
+                consequencesEl.appendChild(list);
+                container.appendChild(consequencesEl);
+            }
+        }
+
+        async function loadRules() {
+            try {
+                const response = await fetch('chat-rules.json', { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                renderRules(data);
+            } catch (error) {
+                console.error('Error loading chat rules:', error);
+                document.getElementById('rules-container').innerHTML =
+                    '<p style="color: #ff6b6b; text-align: center;">Error loading chat rules. Please try again.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadRules);
+    </script>
 </body>
 </html>

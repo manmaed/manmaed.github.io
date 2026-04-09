@@ -1,0 +1,47 @@
+{
+  "title": "Chat Rules",
+  "subtitle": "Keep our community awesome and respectful",
+  "rules": [
+    {
+      "title": "Be Respectful and Kind",
+      "description": "Treat everyone in chat with kindness and respect. No personal attacks, harassment, or bullying of any kind."
+    },
+    {
+      "title": "No Hate Speech or Discrimination",
+      "description": "Absolutely no discrimination based on race, gender, religion, sexual orientation, disability, or any other protected characteristic."
+    },
+    {
+      "title": "Keep Chat PG-13",
+      "description": "Avoid excessive profanity, sexual content, and graphic language. Keep chat around a PG-13 level so everyone can enjoy it."
+    },
+    {
+      "title": "No Spam or Self-Promotion",
+      "description": "Do not spam links, repeatedly post the same message, or excessively promote your own content without permission."
+    },
+    {
+      "title": "Respect Streamer Authority",
+      "description": "Follow the streamer and moderator decisions. Do not argue with moderator actions in chat. Use whisper or mail for concerns."
+    },
+    {
+      "title": "No Excessive Emote Spam",
+      "description": "Use emotes reasonably. Avoid flooding chat with repeated emote strings that obstruct conversation."
+    },
+    {
+      "title": "Do Not Share Personal Information",
+      "description": "Never share your own or others personal information (addresses, phone numbers, real names without consent, etc)."
+    },
+    {
+      "title": "No Spoilers Unless Asked For",
+      "description": "Do not post spoilers for games, shows, or other content unless the streamer has specifically asked for them."
+    }
+  ],
+  "consequences": {
+    "title": "Consequences for Violations",
+    "items": [
+      "First offense: Warning from moderator and message deleted",
+      "Second offense: Timeout (temporary chat restriction)",
+      "Third offense or severe violation: Ban from chat",
+      "Severe harassment or hate speech: Immediate ban"
+    ]
+  }
+}
