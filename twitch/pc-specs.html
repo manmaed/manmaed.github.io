@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Specifications - Twitch Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #9146ff 0%, #140028 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        body {
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background: rgba(145, 70, 255, 0.3);
+            border: 1px solid rgba(145, 70, 255, 0.5);
+        }
+
+        nav a:hover {
+            background: rgba(145, 70, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #9146ff;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .spec-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid rgba(145, 70, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            border: 2px solid rgba(145, 70, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(145, 70, 255, 0.2);
+        }
+
+        .spec-card h3 {
+            color: #9146ff;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .spec-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(145, 70, 255, 0.2);
+        }
+
+        .spec-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #a8edea;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-value {
+            color: #fff;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, rgba(145, 70, 255, 0.2), rgba(122, 58, 237, 0.2));
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid rgba(145, 70, 255, 0.5);
+            margin-bottom: 2rem;
+        }
+
+        .summary-card h3 {
+            color: #a8edea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .summary-card p {
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .highlight {
+            color: #a8edea;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(145, 70, 255, 0.2);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spec-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">← Back to Twitch Hub</a>
+        <a href="chat-rules.html">Chat Rules</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>⚙️ PC Specifications</h1>
+            <p class="subtitle">The hardware that powers the stream</p>
+        </header>
+
+        <div class="specs-grid" id="specs-container">
+            <p style="text-align: center; grid-column: 1 / -1;">Loading specs...</p>
+        </div>
+
+        <footer>
+            <p>Questions about the setup? Feel free to ask in chat! 🎮</p>
+        </footer>
+    </div>
+
+    <script>
+        // Load specs from JSON file
+        async function loadSpecs() {
+            try {
+                const response = await fetch('specs.json');
+                const data = await response.json();
+                
+                // Build specs HTML
+                const specsContainer = document.getElementById('specs-container');
+                specsContainer.innerHTML = '';
+                
+                data.specs.forEach(section => {
+                    const cardClass = section.fullWidth ? 'spec-card full-width' : 'spec-card';
+                    const card = document.createElement('div');
+                    card.className = cardClass;
+                    
+                    card.innerHTML = `<h3>${section.title}</h3>`;
+                    
+                    section.items.forEach(item => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'spec-item';
+                        itemDiv.innerHTML = `
+                            <div class="spec-label">${item.label}</div>
+                            <div class="spec-value">${item.value}</div>
+                        `;
+                        card.appendChild(itemDiv);
+                    });
+                    
+                    specsContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading specs:', error);
+                document.getElementById('specs-container').innerHTML = 
+                    '<p style="color: #ff6b6b;">Error loading specifications. Please try again.</p>';
+            }
+        }
+        
+        // Load specs when page loads
+        document.addEventListener('DOMContentLoaded', loadSpecs);
+    </script>
+</body>
+</html>

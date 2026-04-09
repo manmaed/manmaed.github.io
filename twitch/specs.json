@@ -1,0 +1,63 @@
+{
+  "specs": [
+    {
+      "title": "💻 CPU & Cooling",
+      "items": [
+        { "label": "Processor", "value": "Intel Core i9-13900KS" },
+        { "label": "Cores / Threads", "value": "24 Cores / 32 Threads" },
+        { "label": "Base Clock", "value": "3.4 GHz" },
+        { "label": "Boost Clock", "value": "6.2 GHz" },
+        { "label": "CPU Cooler", "value": "NZXT Kraken X73 AIO" }
+      ]
+    },
+    {
+      "title": "🎮 Graphics",
+      "items": [
+        { "label": "GPU", "value": "NVIDIA RTX 4090 Founders Edition" },
+        { "label": "VRAM", "value": "24 GB GDDR6X" },
+        { "label": "CUDA Cores", "value": "16,384" },
+        { "label": "Memory Interface", "value": "384-bit" },
+        { "label": "Max Power", "value": "575W" }
+      ]
+    },
+    {
+      "title": "🧠 Memory & Storage",
+      "items": [
+        { "label": "RAM", "value": "64 GB DDR5 6000MHz" },
+        { "label": "Modules", "value": "4x 16GB Corsair Dominator" },
+        { "label": "Primary SSD", "value": "2TB Samsung 990 Pro NVMe" },
+        { "label": "Secondary SSD", "value": "2TB Samsung 870 QVO SATA" },
+        { "label": "HDD Storage", "value": "4TB Seagate Barracuda" }
+      ]
+    },
+    {
+      "title": "⚡ Power & Motherboard",
+      "items": [
+        { "label": "Motherboard", "value": "ASUS ROG Maximus Z790 HERO" },
+        { "label": "Socket", "value": "LGA 1700" },
+        { "label": "Power Supply", "value": "Corsair RM1200x 1200W Gold" },
+        { "label": "Case", "value": "NZXT H7 Flow RGB" },
+        { "label": "BIOS", "value": "UEFI" }
+      ]
+    },
+    {
+      "title": "🖥️ Display & Connectivity",
+      "items": [
+        { "label": "Primary Monitor", "value": "4K 144Hz IPS (3840x2160)" },
+        { "label": "Secondary Monitor", "value": "1440p 165Hz IPS (2560x1440)" },
+        { "label": "Connectivity", "value": "Ethernet (10Gbps), Wi-Fi 6E" },
+        { "label": "USB Ports", "value": "Multiple USB 3.2 & Thunderbolt" }
+      ]
+    },
+    {
+      "title": "🎙️ Peripheral & Audio",
+      "items": [
+        { "label": "Microphone", "value": "Shure SM7B with Cloudlifter" },
+        { "label": "Headphones", "value": "Sennheiser HD 660S" },
+        { "label": "Keyboard", "value": "Corsair K95 Platinum XT" },
+        { "label": "Mouse", "value": "Logitech G Pro X Superlight" },
+        { "label": "Streaming Software", "value": "OBS Studio" }
+      ]
+    }
+  ]
+}
