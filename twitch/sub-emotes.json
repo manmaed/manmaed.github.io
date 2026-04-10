@@ -1,0 +1,76 @@
+{
+  "followers": {
+    "tierName": "Follower Emotes",
+    "emotes": [
+      {
+        "name": "Green",
+        "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_cf001f5e1d51481d8a9837a61d0cb975/default/dark/3.0"
+      },
+      {
+        "name": "Red",
+        "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_40aa85a436254f529246df521673deac/default/dark/3.0"
+      },
+      {
+        "name": "Yellow",
+        "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_ed6fd6f79ca7401abea5a50b5d031f78/default/dark/3.0"
+      },
+      {
+        "name": "Blue",
+        "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_4c33e990084340a1a5edb7c959f15cac/default/dark/3.0"
+      },
+      {
+        "name": "Purple",
+        "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_2e0aa2e80b8c4c008e1ed473cfa33214/default/dark/3.0"
+      }
+    ]
+  },
+  "tiers": [
+    {
+      "tierName": "Tier 1 Emotes",
+      "emotes": [
+        {
+          "name": "Spin",
+          "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_711af87fe20f4384abe2c29e2bf0771f/default/dark/3.0"
+        },
+        {
+          "name": "Rave",
+          "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_3c83ebfe4e92486b9321e7b6b591546b/default/dark/3.0"
+        },
+        {
+          "name": "Dance",
+          "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_768e74fdeb0f499cb5560631717f9ff4/default/dark/3.0"
+        },
+        {
+          "name": "Rage",
+          "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_8f5c89b460234bd7b4f963882673c67d/default/dark/3.0"
+        },
+        {
+          "name": "PetBedRock",
+          "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_b723df2e3b534d04a6e3a8f5293ae512/default/dark/3.0"
+        },
+        {
+          "name": "VTuber",
+          "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_997dc64b31144a1c89512dc33a59d925/default/dark/3.0"
+        },
+        {
+            "name": "Profoinkers",
+            "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_41568600a5314a898ba24283e73880a1/default/dark/3.0"
+        },
+        {
+            "name": "Puppy",
+            "iconUrl": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_3e1cd24b03be4e5487c1c2a34d6f6b1a/default/dark/3.0"
+        }
+      ]
+    },
+    {
+      "tierName": "Tier 2 Emotes",
+      "emotes": [
+      ]
+    },
+    {
+      "tierName": "Tier 3 Emotes",
+      "emotes": [
+      ]
+    }
+  ]
+}

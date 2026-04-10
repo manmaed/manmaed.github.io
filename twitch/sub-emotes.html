@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub Emotes - Twitch Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #9146ff 0%, #140028 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        body {
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background: rgba(145, 70, 255, 0.3);
+            border: 1px solid rgba(145, 70, 255, 0.5);
+        }
+
+        nav a:hover {
+            background: rgba(145, 70, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #9146ff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .emotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .emote-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid rgba(145, 70, 255, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .emote-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .emote-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.12);
+            border: 2px solid rgba(145, 70, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(145, 70, 255, 0.2);
+        }
+
+        .emote-name {
+            font-weight: 600;
+            color: #a8edea;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .emote-tier {
+            font-size: 0.8rem;
+            color: #9146ff;
+            opacity: 0.8;
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(145, 70, 255, 0.2);
+            width: 100%;
+        }
+
+        .tier-section {
+            margin-bottom: 3rem;
+        }
+
+        .tier-title {
+            font-size: 1.8rem;
+            color: #9146ff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(145, 70, 255, 0.4);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(145, 70, 255, 0.2), rgba(122, 58, 237, 0.2));
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid rgba(145, 70, 255, 0.5);
+            margin-bottom: 2rem;
+        }
+
+        .info-card h3 {
+            color: #a8edea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(145, 70, 255, 0.2);
+            margin-top: 3rem;
+        }
+
+        .shared-footer-frame {
+            width: 100%;
+            height: 48px;
+            border: 0;
+            background: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .emotes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">← Back to Twitch Hub</a>
+        <a href="chat-rules.html">Chat Rules</a>
+        <a href="pc-specs.html">PC Specs</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>🎁 Sub Emotes</h1>
+            <p class="subtitle">Exclusive emotes for our amazing subscribers</p>
+        </header>
+
+        <div class="info-card">
+            <h3>Support the Stream!</h3>
+            <p>Subscribe to unlock exclusive emotes and show your support! Each subscription tier unlocks unique emotes that you can use throughout Twitch.</p>
+        </div>
+
+        <div id="emotes-container">
+            <p style="text-align: center;">Loading emotes...</p>
+        </div>
+
+        <footer>
+            <iframe class="shared-footer-frame" src="../footer.html" title="Site footer"></iframe>
+        </footer>
+    </div>
+
+    <script>
+        function renderEmotes(data) {
+            const emotesContainer = document.getElementById('emotes-container');
+            emotesContainer.innerHTML = '';
+
+            // Render follower emotes first if they exist
+            if (data.followers) {
+                const followerSection = document.createElement('div');
+                followerSection.className = 'tier-section';
+
+                const followerTitle = document.createElement('h2');
+                followerTitle.className = 'tier-title';
+                followerTitle.textContent = data.followers.tierName;
+                followerSection.appendChild(followerTitle);
+
+                const followerGrid = document.createElement('div');
+                followerGrid.className = 'emotes-grid';
+
+                data.followers.emotes.forEach(emote => {
+                    const emoteCard = document.createElement('div');
+                    emoteCard.className = 'emote-card';
+                    
+                    emoteCard.innerHTML = `
+                        <img src="${emote.iconUrl}" alt="${emote.name}" class="emote-icon" />
+                        <div class="emote-name">manmae${emote.name}</div>
+                    `;
+                    followerGrid.appendChild(emoteCard);
+                });
+
+                followerSection.appendChild(followerGrid);
+                emotesContainer.appendChild(followerSection);
+            }
+
+            // Render subscription tiers
+            data.tiers.forEach(tier => {
+                const tierSection = document.createElement('div');
+                tierSection.className = 'tier-section';
+
+                const tierTitle = document.createElement('h2');
+                tierTitle.className = 'tier-title';
+                tierTitle.textContent = tier.tierName;
+                tierSection.appendChild(tierTitle);
+
+                const emotesGrid = document.createElement('div');
+                emotesGrid.className = 'emotes-grid';
+
+                tier.emotes.forEach(emote => {
+                    const emoteCard = document.createElement('div');
+                    emoteCard.className = 'emote-card';
+                    
+                    emoteCard.innerHTML = `
+                        <img src="${emote.iconUrl}" alt="${emote.name}" class="emote-icon" />
+                        <div class="emote-name">manmae${emote.name}</div>
+                    `;
+                    emotesGrid.appendChild(emoteCard);
+                });
+
+                tierSection.appendChild(emotesGrid);
+                emotesContainer.appendChild(tierSection);
+            });
+        }
+
+        async function loadEmotes() {
+            try {
+                const response = await fetch('sub-emotes.json', { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                const data = await response.json();
+                renderEmotes(data);
+            } catch (error) {
+                console.error('Error loading emotes:', error);
+                document.getElementById('emotes-container').innerHTML =
+                    '<p style="color: #ff6b6b; text-align: center;">Error loading emotes. Please try again.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadEmotes);
+    </script>
+</body>
+</html>
