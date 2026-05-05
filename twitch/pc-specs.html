@@ -73,7 +73,7 @@
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             color: #9146ff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            text-shadow: -1px -1px 0 #140028, 1px -1px 0 #140028, -1px 1px 0 #140028, 1px 1px 0 #140028, 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .subtitle {
@@ -111,6 +111,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-shadow: -1px -1px 0 #140028, 1px -1px 0 #140028, -1px 1px 0 #140028, 1px 1px 0 #140028;
         }
 
         .spec-item {
@@ -266,6 +267,20 @@
         }
 
         document.addEventListener('DOMContentLoaded', loadSpecs);
+    </script>
+    <script>
+        (function () {
+            const secret = 'comic';
+            let typed = '';
+            document.addEventListener('keydown', (e) => {
+                typed = (typed + e.key).slice(-secret.length);
+                if (typed.toLowerCase() === secret) {
+                    document.body.style.fontFamily = document.body.style.fontFamily === 'Comic Sans MS, Comic Sans, cursive'
+                        ? "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                        : 'Comic Sans MS, Comic Sans, cursive';
+                }
+            });
+        })();
     </script>
 </body>
 </html>
