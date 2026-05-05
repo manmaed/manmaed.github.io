@@ -168,6 +168,13 @@
             left: 0;
         }
 
+        .last-modified {
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 1rem;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -213,6 +220,8 @@
         <div class="rules-section" id="rules-container">
             <p style="text-align: center;">Loading rules...</p>
         </div>
+
+        <p class="last-modified" id="last-modified"></p>
 
         <footer>
             <iframe class="shared-footer-frame" src="../footer.html" title="Site footer"></iframe>
@@ -268,8 +277,14 @@
                     throw new Error(`HTTP ${response.status}`);
                 }
 
+                const lastModified = response.headers.get('Last-Modified');
                 const data = await response.json();
                 renderRules(data);
+                if (lastModified) {
+                    const date = new Date(lastModified);
+                    document.getElementById('last-modified').textContent =
+                        'Rules last updated: ' + date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+                }
             } catch (error) {
                 console.error('Error loading chat rules:', error);
                 document.getElementById('rules-container').innerHTML =
