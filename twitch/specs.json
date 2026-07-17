@@ -35,7 +35,7 @@
       "title": "🖥️ Display & Connectivity",
       "items": [
         { "label": "Primary Monitor", "value": "iivama" },
-        { "label": "Secondary Monitor", "value": "Acer" }
+        { "label": "Secondary Monitor", "value": "Acer KA272H" }
       ]
     },
     {
@@ -48,7 +48,8 @@
       "title": "🎙️ Peripheral & Audio",
       "items": [
         { "label": "Microphone", "value": "Blue Snowball White" },
-        { "label": "Headphones", "value": "Sony Wireless TMR-RF810R" },
+        { "label": "Headphones", "value": "HyperX Cloud Alpha Wireless Gaming Headset Red/Black" },
+        { "label": "Headphones", "value": "Turtle Beach Recon 50 Headset Red/Black" },
         { "label": "Keyboard", "value": "Trust GXT 838 AZOR Wired Gaming Keyboard" },
         { "label": "Mouse", "value": "Logitech G203 Wired Gaming Mouse - Black" },
         { "label": "Streaming Software", "value": "OBS Studio" }
