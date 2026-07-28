@@ -1,0 +1,31 @@
+{
+    "packName": "FTB StoneBlock 3",
+    "packUrl": "https://www.feed-the-beast.com/modpacks/100-ftb-stoneblock-3",
+    "packImage": "https://media.forgecdn.net/avatars/thumbnails/1068/330/256/256/638602808165369077.png",
+    "version": "v1.11.5",
+    "minecraftVersion": "1.18.2",
+    "addedMods": [
+        {
+            "name": "AntiBlocksReChiseled",
+            "version": "0.0.4",
+            "url": "https://www.curseforge.com/minecraft/mc-mods/antiblocksrechiseled"
+        },
+        {
+            "name": "PetRock",
+            "version": "Private Build",
+            "url": "https://www.curseforge.com/minecraft/mc-mods/petrock-mod"
+        },
+        {
+            "name": "PetSlow",
+            "version": "0.5.8",
+            "url": "https://www.curseforge.com/minecraft/mc-mods/pet-slow"
+        },
+        {
+            "name": "Sophisticated Backpacks",
+            "version": "3.20.3.1063",
+            "url": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks"
+        }
+    ],
+    "removedMods": [
+    ]
+}
