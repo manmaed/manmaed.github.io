@@ -135,6 +135,10 @@
             color: #feb2b2;
         }
 
+        .mods-card.changed h2 {
+            color: #f6e05e;
+        }
+
         .mods-list {
             list-style: none;
         }
@@ -154,6 +158,15 @@
         .removed .mods-list li {
             background: rgba(245, 101, 101, 0.18);
             border: 1px solid rgba(245, 101, 101, 0.42);
+        }
+
+        .changed .mods-list li {
+            background: rgba(246, 224, 94, 0.2);
+            border: 1px solid rgba(246, 224, 94, 0.4);
+        }
+
+        .mods-card.changed {
+            grid-column: 1 / -1;
         }
 
         .mod-version {
@@ -218,8 +231,9 @@
             const packName = data.packName || 'Minecraft Mod Pack';
             const addedMods = Array.isArray(data.addedMods) ? data.addedMods : [];
             const removedMods = Array.isArray(data.removedMods) ? data.removedMods : [];
+            const modifyed = Array.isArray(data.modifyed) ? data.modifyed : [];
 
-            function renderAddedModItem(mod) {
+            function renderModItem(mod) {
                 if (typeof mod === 'string') {
                     return `<li>${mod}</li>`;
                 }
@@ -241,8 +255,9 @@
                 return '<li>Unknown Mod</li>';
             }
 
-            const addedList = addedMods.map((mod) => renderAddedModItem(mod)).join('');
-            const removedList = removedMods.map((mod) => `<li>${mod}</li>`).join('');
+            const addedList = addedMods.map((mod) => renderModItem(mod)).join('');
+            const removedList = removedMods.map((mod) => renderModItem(mod)).join('');
+            const changedList = modifyed.map((mod) => renderModItem(mod)).join('');
             const packTitleHtml = packUrl
                 ? `<h1><a class="pack-name-link" href="${packUrl}" target="_blank" rel="noopener noreferrer">${packName}</a></h1>`
                 : `<h1>${packName}</h1>`;
@@ -277,6 +292,14 @@
                         </ul>
                     </article>
                 </section>
+                </br>
+                <article class="mods-card changed">
+                        <h2>Modified Stuff</h2>
+                        <ul class="mods-list">
+                            ${changedList}
+                        </ul>
+                    </article>
+                
             `;
         }
 
