@@ -24,6 +24,11 @@
             "name": "Sophisticated Backpacks",
             "version": "3.20.3.1063",
             "url": "https://www.curseforge.com/minecraft/mc-mods/sophisticated-backpacks"
+        },
+        {
+            "name": "ExtraStorage",
+            "version": "2.2.1",
+            "url": "https://www.curseforge.com/minecraft/mc-mods/extrastorage"
         }
     ],
     "removedMods": [
